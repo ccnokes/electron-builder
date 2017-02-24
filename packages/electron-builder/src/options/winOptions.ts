@@ -48,6 +48,11 @@ export interface WinBuildOptions extends PlatformSpecificBuildOptions {
   readonly certificateSubjectName?: string
 
   /**
+  SHA1 of the certificate to sign with.
+   */
+  readonly certificateSHA1?: string
+
+  /**
   The URL of the RFC 3161 time stamp server. Defaults to `http://timestamp.comodoca.com/rfc3161`.
    */
   readonly rfc3161TimeStampServer?: string

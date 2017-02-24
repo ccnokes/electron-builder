@@ -90,6 +90,15 @@ async function spawnSign(options: SignOptions, inputPath: string, outputPath: st
     }
   }
 
+  if (options.options.certificateSHA1) {
+    if (isWin) {
+      args.push("/sha1", options.options.certificateSHA1)
+    }
+    else {
+      throw new Error("certificateSHA1 supported only on Windows")
+    }
+  }
+
   if (!isWin || hash !== "sha1") {
     args.push(isWin ? "/fd" : "-h", hash)
     if (isWin && process.env.ELECTRON_BUILDER_OFFLINE !== "true") {
